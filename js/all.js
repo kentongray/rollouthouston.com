@@ -101,9 +101,9 @@ define("Scheduler", ["exports"], function (exports) {
                     spatialRel: "esriSpatialRelIntersects", returnGeometry: false
                 }
             };
-            var wastePromise = $http.get("http://crossorigin.me/http://mycity.houstontx.gov/ArcGIS10/rest/services/wm/MyCityMapData_wm/MapServer/111/query", queryParams);
-            var junkPromise = $http.get("http://crossorigin.me/http://mycity.houstontx.gov/ArcGIS10/rest/services/wm/MyCityMapData_wm/MapServer/112/query", queryParams);
-            var recyclingPromise = $http.get("http://crossorigin.me/http://mycity.houstontx.gov/ArcGIS10/rest/services/wm/MyCityMapData_wm/MapServer/113/query", queryParams);
+            var wastePromise = $http.get("http://mycity.houstontx.gov/ArcGIS10/rest/services/wm/MyCityMapData_wm/MapServer/111/query", queryParams);
+            var junkPromise = $http.get("http://mycity.houstontx.gov/ArcGIS10/rest/services/wm/MyCityMapData_wm/MapServer/112/query", queryParams);
+            var recyclingPromise = $http.get("http://mycity.houstontx.gov/ArcGIS10/rest/services/wm/MyCityMapData_wm/MapServer/113/query", queryParams);
 
             this.whenLoaded = $q.all([wastePromise, junkPromise, recyclingPromise]).then(function (allResults) {
                 var _allResults$map = allResults.map(function (_) {
