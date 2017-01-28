@@ -200,7 +200,7 @@ define("Scheduler", ["exports"], function (exports) {
                 value: function isRecyclingDay(day) {
                     //recycling schedule A occurs every other week (starting at second week)
                     var isEvenWeek = day.weeks() % 2 == 0;
-                    var isThisWeek = this.pickupDays.recyclingScheduleA && !isEvenWeek || !this.pickupDays.recyclingScheduleA && isEvenWeek;
+                    var isThisWeek = (this.pickupDays.recyclingOnEvenWeeks && isEvenWeek) || (!this.pickupDays.recyclingOnEvenWeeks && !isEvenWeek);
                     return isThisWeek && day.day() == this.pickupDays.recyclingDay;
                 }
             },
